@@ -1,3 +1,3 @@
-docker compose down --volumes --rmi all &&
+cd /airflow && docker compose down --volumes --rmi all && cd .. &&
 rm -rf /airflow
-echo Uninstall completed.
+echo Airflow uninstall completed.
