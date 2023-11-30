@@ -1,1 +1,23 @@
-#kubectl apply -f https://k8s.io/examples/controllers/nginx-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: test-web
+spec:
+  selector:
+    matchLabels:
+      app: test-web
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: test-web
+    spec:
+      containers:
+       —name: nginx
+          image: nginx
+          ports:
+           —containerPort: 80
